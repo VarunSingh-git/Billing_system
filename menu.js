@@ -1,3 +1,17 @@
+gsap.from("h4", {
+    y: 30,
+    opacity: 0,
+    duration: 2,
+    delay: .3,
+})    // repeat:1
+gsap.from("#finalBill", {
+    y: 30,
+    opacity: 1,
+    duration: 3,
+    delay: .7
+    // stagger:1
+})
+
 let momos = document.getElementById("momosBtn");
 let chowmin = document.getElementById("chowminBtn");
 let fries = document.getElementById("friesBtn");
@@ -8,6 +22,7 @@ let h1 = document.getElementById("h1");
 let list = document.getElementById("list");
 let count = document.getElementById("count")
 let box = document.getElementById("box")
+
 
 let momosLi = document.createElement('li')
 let momosTxtNode = document.createTextNode('Momos')
@@ -453,13 +468,11 @@ thanda.addEventListener('click', () => {
 
 let storageClrBtn = document.getElementById("btnForClearStorage")
 storageClrBtn.addEventListener("click", () => {
-    localStorage.clear()
     console.clear()
     document.getElementById("doneBtn").disabled = false;
     document.getElementById("doneBtn").style.cursor = "pointer";
-
-    list.remove()
-    count.remove();
+    location.reload();
+    localStorage.clear()
 
 })
 document.getElementById("doneBtn").addEventListener("click", () => {
@@ -470,18 +483,16 @@ document.getElementById("doneBtn").addEventListener("click", () => {
     let burger = Number(localStorage.getItem("burgerPrice"))
     let thanda = Number(localStorage.getItem("thandaPrice"))
 
-    let final = document.getElementById("finalBill");
-    // final.textContent =0
-    final.textContent = momos + chowmin + fries + pizza + burger + thanda
-    let newParaForItemList = document.createElement('p')
-    newParaForItemList.id = "newPara";
-    // document.getElementById("newPara").innerHTML = `Momos ${momos}, Chowmin ${chowmin}, Fries ${fries}, Pizza ${pizza}, Burger ${burger}, Cold Drink ${thanda}`
+    // let final = document.createElement('h5')
+    // final.id = 'finalBill';
+    // let finalBill = document.getElementById('finalBill');
+    // box.appendChild(final)
+    document.getElementById("finalBill").textContent = `You have to Pay ₹${momos + chowmin + fries + pizza + burger + thanda} Thanks for Coming 🙄`;
+    // console.log('You have to Pay ₹ '+momos + chowmin + fries + pizza + burger + thanda, ' Thanks for Coming 🙄');
+    // final.textContent='
 
-    // console.log(`momos ${momos}, chowmin ${chowmin}, fries ${fries}, pizza ${pizza}, burger ${burger}, thanda ${thanda}`);
-    // console.log(`You have to Pay ${momos + chowmin + fries + pizza + burger + thanda}`);
-    console.log(`Thanks for Coming 🙄`);
-    document.getElementById("doneBtn").disabled = true;
-    document.getElementById("doneBtn").style.cursor = "no-drop";
+    // document.getElementById("doneBtn").disabled = true;
+    // document.getElementById("doneBtn").style.cursor = "no-drop";
 
 
 })

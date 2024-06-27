@@ -9,17 +9,12 @@
         .menu {
             height: 380px;
             width: 590px;
-            /* margin: auto 20px; */
-            /* padding: 15px 20px; */
             border-radius: 6px;
             display: flex;
-            /* background-color: rgb(142, 199, 240); */
         }
 
         .box {
             display: flex;
-            /* align-items: center; */
-            /* border: 1px solid #ccc; */
             padding: 10px;
         }
 
@@ -224,10 +219,8 @@
             height: 13px;
             width: 15px;
             float: right;
-            margin-left: auto;
-            /* margin-left: 30px; */
+            margin-left: 30px;
             margin-right: 50px;
-            /* margin-right: 50px; */
             margin-top: 12px;
         }
 
@@ -292,10 +285,30 @@
             background-color: #647df8;
             box-shadow: 20px 10px 12px rgba(0, 0, 0, 0.2);
         }
+
+        #finalBill {
+            color: #d8d8d8;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            margin-left: 50%;
+            font-size: 25px;
+            
+        }
+
+        h4 {
+            color: white;
+            font-size: 20px;
+            margin-left: 200px;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+
+        }
     </style>
 </head>
 
 <body bgcolor="#7f7f95">
+    <div id="nav">
+        <h4>As the bill calculation is inaccurate, you should reset first.</h4>
+    </div>
     <div class="box">
         <div class="menu">
             <div class="Ist" id="div1">
@@ -329,15 +342,20 @@
             </div>
         </div>
         <div id="list">
-            
+
         </div>
         <div id="count">
-            
+
         </div>
     </div>
-    <p id="finalBill"></p>
+    
     <button id="btnForClearStorage">Reset</button>
     <button id="doneBtn">Done</button>
+    <div id="finalBill">
+    <p></p></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+        integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="menu.js"></script>
 </body>
 
