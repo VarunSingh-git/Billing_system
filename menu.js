@@ -3,13 +3,6 @@ gsap.from("h4", {
     opacity: 0,
     duration: 2,
     delay: .3,
-})    // repeat:1
-gsap.from("#finalBill", {
-    y: 30,
-    opacity: 1,
-    duration: 3,
-    delay: .7
-    // stagger:1
 })
 
 let momos = document.getElementById("momosBtn");
@@ -468,31 +461,65 @@ thanda.addEventListener('click', () => {
 
 let storageClrBtn = document.getElementById("btnForClearStorage")
 storageClrBtn.addEventListener("click", () => {
-    console.clear()
     document.getElementById("doneBtn").disabled = false;
     document.getElementById("doneBtn").style.cursor = "pointer";
     location.reload();
     localStorage.clear()
-
 })
 document.getElementById("doneBtn").addEventListener("click", () => {
-    let momos = Number(localStorage.getItem("momosPrice"))
-    let chowmin = Number(localStorage.getItem("chowminPrice"))
-    let fries = Number(localStorage.getItem("friesPrice"))
-    let pizza = Number(localStorage.getItem("pizzaPrice"))
-    let burger = Number(localStorage.getItem("burgerPrice"))
-    let thanda = Number(localStorage.getItem("thandaPrice"))
-
-    // let final = document.createElement('h5')
-    // final.id = 'finalBill';
-    // let finalBill = document.getElementById('finalBill');
-    // box.appendChild(final)
-    document.getElementById("finalBill").textContent = `You have to Pay ₹${momos + chowmin + fries + pizza + burger + thanda} Thanks for Coming 🙄`;
-    // console.log('You have to Pay ₹ '+momos + chowmin + fries + pizza + burger + thanda, ' Thanks for Coming 🙄');
-    // final.textContent='
-
-    // document.getElementById("doneBtn").disabled = true;
-    // document.getElementById("doneBtn").style.cursor = "no-drop";
+    let final = document.createElement('p');
+    final.id = 'finalBill';
 
 
-})
+    let existingAlert = document.getElementById("alert");
+    if (existingAlert) {
+        existingAlert.remove();
+    }
+
+    let existingBill = document.getElementById("finalBill");
+    if (existingBill) {
+        existingBill.remove();
+    }
+
+    let momos = Number(localStorage.getItem("momosPrice")) || 0;
+    let chowmin = Number(localStorage.getItem("chowminPrice")) || 0;
+    let fries = Number(localStorage.getItem("friesPrice")) || 0;
+    let pizza = Number(localStorage.getItem("pizzaPrice")) || 0;
+    let burger = Number(localStorage.getItem("burgerPrice")) || 0;
+    let thanda = Number(localStorage.getItem("thandaPrice")) || 0;
+
+    let totalAmount = momos + chowmin + fries + pizza + burger + thanda;
+    if (totalAmount == 0) {
+        let sadTxtNode = document.createTextNode('Please Buy Somthing🥺🙂....!!');
+        final.appendChild(sadTxtNode);
+        document.getElementById("body").appendChild(final);
+        return;
+    }
+
+    let bilTxtNode = document.createTextNode('You have to pay ₹' + totalAmount + '.');
+    let br = document.createElement('br');
+    let happyTxtNode = document.createTextNode('Thanks for coming!😊❤️');
+    final.appendChild(bilTxtNode);
+    final.appendChild(br);
+    final.appendChild(happyTxtNode);
+
+    document.getElementById("body").appendChild(final);
+
+    gsap.to(final, { duration: 1, opacity: 1, y: -20 });
+
+    if (!document.getElementById("alert")) {
+        let alert = document.createElement('h3');
+        alert.id = "alert";
+        let alertTxtNode = document.createTextNode('You Should clear your storage before use this app :)');
+        alert.appendChild(alertTxtNode);
+        document.getElementById("body").appendChild(alert);
+        gsap.from('#alert', {
+            y: 20,
+            duration: 1,
+            delay: 1,
+            opacity: 0,
+            color: "#dbdbdb"
+        })
+    }
+    return;
+});
