@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <style>
+        .menu {
+            height: 380px;
+            width: 590px;
+            border-radius: 6px;
+            display: flex;
+        }
+
+        .box {
+            display: flex;
+            padding: 10px;
+        }
+
+        .Ist {
+            height: 10px;
+            width: 590px;
+        }
+
+        #momos,
+        #pizza,
+        #burger,
+        #chowmin,
+        #fries,
+        #thanda,
+        button:hover {
+            cursor: pointer;
+        }
+
+        #momos {
+            height: 134px;
+            width: 177px;
+            border: 1px solid black;
+            margin: 2px 2px;
+            padding: 2px 2px 2px 2px;
+            border-radius: 10px;
+
+        }
+
+        #pizza {
+            height: 134px;
+            width: 177px;
+            border: 1px solid black;
+            margin: 2px 2px;
+            border-radius: 10px;
+
+        }
+
+        #burger {
+            height: 134px;
+            width: 179px;
+            border: 1px solid black;
+            margin: 2px 2px;
+            border-radius: 10px;
+
+        }
+
+        #chowmin {
+            height: 134px;
+            width: 177px;
+            border: 1px solid black;
+            margin: 2px 2px;
+            border-radius: 10px;
+
+        }
+
+        #fries {
+            height: 134px;
+            width: 177px;
+            border: 1px solid black;
+            margin: 2px 2px;
+            border-radius: 10px;
+
+        }
+
+        #thanda {
+            height: 134px;
+            width: 177px;
+            border: 1px solid black;
+            border-radius: 10px;
+            margin: 2px 2px;
+        }
+
+        #row1 button {
+            padding: 3px 2px;
+            margin: 5px 2px;
+            transition: .2s;
+            background-color: rgb(213, 206, 255);
+            border-radius: 12px;
+            border: none;
+        }
+
+        #row2 button {
+            background-color: rgb(213, 206, 255);
+            padding: 3px 2px;
+            margin: 5px 2px;
+            transition: .2s;
+            border-radius: 12px;
+            border: none;
+        }
+
+        #row1 button:hover {
+            box-shadow: 16px 10px 12px rgba(0, 0, 0, 0.2);
+            background-color: #adbaff;
+        }
+
+        #row2 button:hover {
+            box-shadow: 16px 10px 12px rgba(0, 0, 0, 0.2);
+            background-color: #adbaff;
+        }
+
+        img {
+            padding: 1px 1px;
+            color: #556cee;
+        }
+
+        p {
+            margin: 2px 5px;
+            color: rgb(83, 83, 83);
+            font-size: 23px;
+            font-weight: bolder;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        #doneBtn {
+            margin-top: 25px;
+            margin-left: auto;
+            padding: 10px 30px;
+            border-radius: 8px;
+            background-color: rgb(94, 94, 255);
+            color: rgb(255, 255, 255);
+            font-size: 16px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            transition: .2s;
+        }
+
+        #btnForClearStorage {
+            margin-top: 25px;
+            margin-left: 150px;
+            padding: 10px 30px;
+            border-radius: 8px;
+            background-color: rgb(94, 94, 255);
+            color: rgb(255, 255, 255);
+            font-size: 16px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            transition: .2s;
+        }
+
+        #doneBtn:hover {
+            background-color: rgb(0, 0, 255);
+        }
+
+        #btnForClearStorage:hover {
+            background-color: rgb(0, 0, 255);
+        }
+
+        #rmvBtn:hover {
+            background-color: rgb(255, 80, 80);
+
+        }
+
+        #list {
+            height: 400px;
+            width: 400px;
+            margin-right: 8px;
+            border-radius: 10px;
+            margin-left: auto;
+        }
+
+        .myProduct {
+            margin: 18px auto;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            background-color: #a3b2fd;
+            font-size: 20px;
+            padding-left: 20px;
+            padding-top: 6px;
+            /* padding-left: auto;
+            padding-right: auto; */
+            padding-bottom: 6px;
+            transition: .5s;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .myProduct:hover {
+            border: .8px solid #ffffff;
+            background-color: #8196ff;
+            box-shadow: 20px 10px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        li {
+            margin-top: 3px;
+            margin-bottom: 3px;
+        }
+
+        #momosPlusId,
+        #chowminPlusId,
+        #friesPlusId,
+        #burgerPlusId,
+        #pizzaPlusId,
+        #thandaPlusId {
+            height: 13px;
+            width: 15px;
+            float: right;
+            margin-top: 12px;
+        }
+
+        #momosMinusId,
+        #chowminMinusId,
+        #friesMinusId,
+        #burgerMinusId,
+        #pizzaMinusId,
+        #thandaMinusId {
+            height: 13px;
+            width: 15px;
+            float: right;
+            margin-left: 30px;
+            margin-right: 50px;
+            margin-top: 12px;
+        }
+
+        #list li img:hover {
+            cursor: pointer;
+        }
+
+        #imgDiv {
+            height: 19px;
+            width: 100px;
+            background-color: aliceblue;
+        }
+
+        #count {
+            height: 400px;
+            border-top-right-radius: 11px;
+            border-bottom-right-radius: 11px;
+            padding: auto;
+            text-align: center;
+
+        }
+
+        #momosRmvBtn,
+        #chowminRmvBtn,
+        #friesRmvBtn,
+        #burgerRmvBtn,
+        #pizzaRmvBtn,
+        #thandaRmvBtn {
+            margin: 10px 40px;
+            margin-right: 10px;
+            border-radius: 7px;
+            border: 1px solid rgb(0, 0, 0);
+            transition: 2s;
+        }
+
+        #newBtnImg {
+            height: 12px;
+            width: 15px;
+        }
+
+        #momoCount,
+        #chowminCount,
+        #friesCount,
+        #burgerCount,
+        #pizzaCount,
+        #thandaCount {
+            height: 35px;
+            width: 65px;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            background-color: #a3b2fd;
+            font-size: 20px;
+            padding: 9px 2px;
+            transition: .3s;
+            margin-top: 18px;
+            margin-right: 5px;
+            border-radius: 50%;
+            font-weight: bold;
+        }
+
+        #count div:hover {
+            box-shadow: 20px 10px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        #finalBill {
+            color: #d8d8d8;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            margin-left: 60%;
+            font-size: 25px;
+
+        }
+
+        #nav {
+            color: white;
+            font-size: 20px;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            display: flex;
+            justify-content: center;
+            background-color: rgb(130, 161, 252);
+            border: 1px solid #aaaaff;
+        }
+
+        #alert {
+            color: #dbdbdb;
+            font-size: 20px;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            display: flex;
+            justify-content: center;
+            background-color: rgb(130, 161, 252);
+            border: 1px solid #aaaaff;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body bgcolor="royalblue" id="body">
+    <div id="nav">
+        <h4>As the bill calculation is inaccurate, you should reset first.</h4>
+    </div>
+    <div class="box">
+        <div class="menu">
+            <div class="Ist" id="div1">
+
+                <div id="row1">
+                    <button id="momosBtn"><img src="momos.jpg" alt="" height="20px" width="20px" id="momos">
+                        <p>₹20</p>
+                    </button>
+                    <button id="chowminBtn"><img src="chowmin.jpg" alt="" height="20px" width="20px" id="chowmin">
+                        <p>₹20</p>
+                    </button>
+                    <button id="friesBtn"><img src="fries.jpg" alt="" height="20px" width="20px" id="fries">
+                        <p>₹30</p>
+                    </button>
+                </div>
+
+                <div class="Ist" id="div2">
+
+                    <div id="row2">
+                        <button id="burgerBtn"><img src="burger.jpg" alt="" height="20px" width="20px" id="burger">
+                            <p>₹50</p>
+                        </button>
+                        <button id="pizzaBtn"><img src="pizza.jpg" alt="" height="20px" width="20px" id="pizza">
+                            <p>₹149</p>
+                        </button>
+                        <button id="thandaBtn"><img src="thanda.jpg" alt="" height="20px" width="20px" id="thanda">
+                            <p>₹100</p>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="list">
+
+        </div>
+        <div id="count">
+
+        </div>
+    </div>
+
+    <button id="btnForClearStorage">Reset</button>
+    <button id="doneBtn">Done</button>
+    <div id="box"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+        integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script  src="menu.js"></script>
+</body>
+
+</html>
