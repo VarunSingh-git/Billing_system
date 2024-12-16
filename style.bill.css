@@ -1,0 +1,158 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Arial', sans-serif;
+    background: #f1f8ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  #container {
+    width: 80%;
+    max-width: 900px;
+    overflow-x: auto;
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  thead {
+    background-color: #2980b9;
+    color: #fff;
+    font-size: 18px;
+  }
+  
+  th,
+  td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 16px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+  
+  tbody tr:nth-child(even) {
+    background-color: #ecf0f1;
+  }
+  
+  tbody tr:hover {
+    background-color: #1f6e8c;
+    color: #fff;
+  }
+  
+  tfoot {
+    background-color: #2980b9;
+    color: #fff;
+    font-size: 18px;
+  }
+  
+  tfoot td {
+    font-weight: bold;
+  }
+  
+  thead {
+    background-color: #2980b9;
+    color: #fff;
+  }
+  
+  tbody tr:nth-child(odd) {
+    background-color: #f4f6f6;
+  }
+  
+  tbody tr:nth-child(even) {
+    background-color: #d5dbdb;
+  }
+  
+  tbody tr:hover {
+    background-color: #1abc9c;
+    color: #fff;
+  }
+  
+  tfoot {
+    background-color: #2980b9;
+    color: #fff;
+    font-size: 18px;
+  }
+  
+  tfoot td {
+    font-weight: bold;
+  }
+  
+  @media (max-width: 768px) {
+    table {
+      font-size: 14px;
+    }
+  
+    th,
+    td {
+      padding: 8px;
+    }
+  }
+  
+  @media print {
+    body {
+      font-size: 14px;
+    }
+  
+    table {
+      width: 100%;
+      border: 1px solid #000;
+      page-break-before: always;
+      page-break-inside: avoid;
+    }
+  
+    th,
+    td {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 16px;
+    }
+  
+    .table-container {
+      box-shadow: none;
+      padding: 10px;
+      margin-top: 0;
+    }
+  
+    thead {
+      background-color: #2980b9;
+      color: #fff;
+    }
+  
+    tfoot {
+      background-color: #2980b9;
+      color: #fff;
+    }
+  }
+  
+  #img {
+    width: 40px;
+    object-fit: contain;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+  }
+  
+  #home {
+    width: 40px;
+    object-fit: contain;
+    position: absolute;
+    top: 60px;
+    left: 20px;
+  }
+  

@@ -17,6 +17,8 @@ document.getElementById('img').addEventListener('click',()=>localStorage.clear()
 
 let total = momosPrice + chowminPrice + friesPrice + pizzaPrice + burgerPrice + thandaPrice
 
+
+
 // Function to count special items based on prefix in localStorage
 function countSpecialItems(prefix) {
   let count = 0;
