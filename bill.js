@@ -128,3 +128,7 @@ if (localStorage.length !== 0 && showCountFoodItems.length !== 0 && count!==0) {
 }
 }
 
+window.addEventListener('beforeunload', function (event) {
+  // Clear localStorage when the user navigates away or reloads
+  localStorage.clear();
+});

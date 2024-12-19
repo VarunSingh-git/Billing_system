@@ -61,21 +61,21 @@ const thandaPrice = 100;
 
 
 
-momos.addEventListener('click', () => {    
+momos.addEventListener('click', () => {
     momosLi.id = "momosList"
     momosLi.className = "myProduct"
     momosLi.appendChild(momosTxtNode);
     list.appendChild(momosLi);
 
-    
+
     let newBtnImg = document.createElement("img")
     newBtnImg.id = "newBtnImg"
     newBtnImg.src = "cross.png";
-    
+
     let newBtn = document.createElement('button')
     newBtn.id = "momosRmvBtn";
     newBtn.appendChild(newBtnImg);
-    
+
     let minusImg = document.createElement('img')
     minusImg.id = "momosMinusId";
     minusImg.src = 'minus.png'
@@ -83,24 +83,24 @@ momos.addEventListener('click', () => {
     let plusImg = document.createElement('img')
     plusImg.id = "momosPlusId";
     plusImg.src = 'plus.png';
-    
+
     momosLi.appendChild(newBtn)
     momosLi.appendChild(minusImg)
     momosLi.appendChild(plusImg)
-    
+
     localStorage.setItem('count_momos', Name_Momos)
-    
+
     momos.disabled = true;
-    
+
     let m = 0;
-    
+
     let divForCount = document.createElement('div')
     divForCount.id = "momoCount"
     let divForTxt = document.createTextNode(`${m}`)
     divForCount.appendChild(divForTxt);
     count.appendChild(divForCount)
-    
-    
+
+
     document.getElementById("momosPlusId").addEventListener("click", () => {
         m++
         let momosFinalRate = m * momosPrice
@@ -518,20 +518,40 @@ storageClrBtn.addEventListener("click", () => {
     location.reload();
     localStorage.clear()
 })
+
+
+function countSpecialItems(prefix) {
+    let count = 0;
+    for (let i = 0; i < localStorage.length; i++) {
+      let key = localStorage.key(i);
+      if (key.startsWith(prefix)) {
+        count++;
+      }
+    }
+    return count;
+  }
+
+  const count1 =countSpecialItems('count_')
 document.getElementById("doneBtn").addEventListener("click", () => {
-    let final = document.createElement('p');
-    final.id = 'finalBill';
+    if (count1) {
+
+        let final = document.createElement('p');
+        final.id = 'finalBill';
 
 
-    let existingAlert = document.getElementById("alert");
-    if (existingAlert) {
-        existingAlert.remove();
+        let existingAlert = document.getElementById("alert");
+        if (existingAlert) {
+            existingAlert.remove();
+        }
+
+        let existingBill = document.getElementById("finalBill");
+        if (existingBill) {
+            existingBill.remove();
+        }
+        location.href = 'bill.html'
+
     }
-
-    let existingBill = document.getElementById("finalBill");
-    if (existingBill) {
-        existingBill.remove();
+    else{
+        location.href = 'error.html'
     }
-    location.href = 'bill.html'
-    
 });
