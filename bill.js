@@ -13,7 +13,7 @@ let friesCount = Number(localStorage.getItem('friesCount'))
 let pizzaCount = Number(localStorage.getItem('pizzaCount'))
 let burgerCount = Number(localStorage.getItem('burgerCount'))
 let coldDrinkCount = Number(localStorage.getItem('coldDrinkCount'))
-document.getElementById('img').addEventListener('click',()=>localStorage.clear())
+document.getElementById('img').addEventListener('click', () => localStorage.clear())
 
 let total = momosPrice + chowminPrice + friesPrice + pizzaPrice + burgerPrice + thandaPrice
 
@@ -46,10 +46,10 @@ function showItem(prefix) {
 
 const showCountSalesItems = showItem('sales_'); // Items (names)
 const showCountFoodItems = showItem('count_');  // Quantities
-const itemPrice =showItem('Price_') 
-const count =countSpecialItems('count_')
+const itemPrice = showItem('Price_')
+const count = countSpecialItems('count_')
 console.log(count);
-console.log(itemPrice[1]);
+console.log(itemPrice.keys);
 
 
 // Displaying items and their quantities in the console
@@ -61,9 +61,9 @@ showCountFoodItems.forEach(i => {
   console.log(i.value);
 });
 
-itemPrice.forEach(i=>{
+itemPrice.forEach(i => {
   console.log(i.value);
-  
+
 })
 
 // Create a table element
@@ -76,11 +76,11 @@ const tbody = document.createElement('tbody');
 const row = document.createElement('tr')
 
 let quantity = document.createElement('th')
-quantity.textContent= 'Quantity'
+quantity.textContent = 'Quantity'
 let item = document.createElement('th')
-item.textContent='Items'
+item.textContent = 'Items'
 let price = document.createElement('th')
-price.textContent='Price'
+price.textContent = 'Price'
 
 tbody.appendChild(quantity)
 tbody.appendChild(item)
@@ -90,42 +90,42 @@ table.appendChild(tbody)
 div.appendChild(table)
 
 // Ensure localStorage has data and food items exist
-if (localStorage.length !== 0 && showCountFoodItems.length !== 0 && count!==0) {
-  if(showItem('sales_') && showItem('count_') && showItem('Price_')){
-    
+if (localStorage.length !== 0 && showCountFoodItems.length !== 0 && count !== 0) {
+  if (showItem('sales_') && showItem('count_') && showItem('Price_')) {
+
     for (let i = 0; i < showCountFoodItems.length; i++) {
       // Create a new row (tr)
       let tr = document.createElement('tr');
-      
+
       // Create and append 'Item' cell (td)
       let item = document.createElement('td');
-      item.textContent = showCountSalesItems[i] ? showCountSalesItems[i].value : exit();
-    tr.appendChild(item);
-    
-    // Create and append 'Quantity' cell (td)
-    let quantity = document.createElement('td');
-    quantity.textContent = showCountFoodItems[i] ? showCountFoodItems[i].value : '0';
-    tr.appendChild(quantity);
+      item.textContent = showCountSalesItems[i] ? showCountSalesItems[i].value : exit(1);
+      tr.appendChild(item);
 
-    let price = document.createElement('td');
-    price.textContent = itemPrice[i] ? itemPrice[i].value : '0';
-    tr.appendChild(price);
+      // Create and append 'Quantity' cell (td)
+      let quantity = document.createElement('td');
+      quantity.textContent = showCountFoodItems[i] ? showCountFoodItems[i].value : '0';
+      tr.appendChild(quantity);
+
+      let price = document.createElement('td');
+      price.textContent = itemPrice[i] ? itemPrice[i].value : '0';
+      tr.appendChild(price);
 
 
-    
-    // Append the row to the tbody
-    tbody.appendChild(tr);
+
+      // Append the row to the tbody
+      tbody.appendChild(tr);
+    }
+
+    // Append the tbody to the table
+    table.appendChild(tbody);
+
+    // Append the table to a div in your HTML
+
+    div.appendChild(table);
+  } else {
+    div.innerHTML = '<h3 style="color:red; ">No items found or localStorage is empty</h3>'
   }
-
-  // Append the tbody to the table
-  table.appendChild(tbody);
-
-  // Append the table to a div in your HTML
-  
-  div.appendChild(table);
-} else {
-  div.innerHTML='<h3 style="color:red; ">No items found or localStorage is empty</h3>'
-}
 }
 
 window.addEventListener('beforeunload', function (event) {

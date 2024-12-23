@@ -113,7 +113,7 @@ momos.addEventListener('click', () => {
         if (m > 0 || m !== 0) {
             m--
             let Count = document.getElementById("momoCount");
-            let momosPriceFromLocalStore = localStorage.getItem("momosPrice")
+            let momosPriceFromLocalStore = localStorage.getItem("Price_momos")
             let momosFinalRate = momosPriceFromLocalStore - momosPrice
             localStorage.setItem("Price_momos", momosFinalRate)
             let mCount = Count.textContent = m;
@@ -127,7 +127,7 @@ momos.addEventListener('click', () => {
         momosLi.removeChild(newBtn)
         count.removeChild(divForCount)
         momosLi.remove();
-        localStorage.removeItem("momosPrice")
+        localStorage.removeItem("Price_momos")
         localStorage.removeItem("sales_momos")
         localStorage.removeItem('count_momos')
         momos.disabled = false;
@@ -185,7 +185,7 @@ chowmin.addEventListener('click', () => {
     document.getElementById("chowminMinusId").addEventListener("click", () => {
         if (c > 0 || c !== 0) {
             c--
-            let chowminPriceFromLocalStore = localStorage.getItem("chowminPrice")
+            let chowminPriceFromLocalStore = localStorage.getItem("Price_chowmin")
             let chowminFinalRate = chowminPriceFromLocalStore - chowminPrice
             localStorage.setItem("Price_chowmin", chowminFinalRate)
             let Count = document.getElementById("chowminCount");
@@ -201,7 +201,7 @@ chowmin.addEventListener('click', () => {
         chowminLi.removeChild(newBtn)
         count.removeChild(divForCount)
         chowminLi.remove();
-        localStorage.removeItem("chowminPrice")
+        localStorage.removeItem("Price_chowmin")
         localStorage.removeItem("sales_chowmin")
         localStorage.removeItem('count_chowmin')
         chowmin.disabled = false;
@@ -259,7 +259,9 @@ fries.addEventListener('click', () => {
     document.getElementById("friesMinusId").addEventListener("click", () => {
         if (f > 0 || f !== 0) {
             f--
-            let friesPriceFromLocalStore = localStorage.getItem("friesPrice")
+            let friesPriceFromLocalStore = localStorage.getItem("Price_fries")
+            console.log(friesPriceFromLocalStore);
+            // console.log();            
             let friesFinalRate = friesPriceFromLocalStore - friesPrice
             localStorage.setItem("Price_fries", friesFinalRate)
             let Count = document.getElementById("friesCount");
@@ -275,7 +277,7 @@ fries.addEventListener('click', () => {
         friesLi.removeChild(newBtn)
         count.removeChild(divForCount)
         friesLi.remove();
-        localStorage.removeItem("friesPrice")
+        localStorage.removeItem("Price_fries")
         localStorage.removeItem("sales_fries")
         localStorage.removeItem('count_fries')
         fries.disabled = false;
@@ -335,7 +337,7 @@ burger.addEventListener('click', () => {
     document.getElementById("burgerMinusId").addEventListener("click", () => {
         if (b > 0 || b !== 0) {
             b--
-            let burgerPriceFromLocalStore = localStorage.getItem("burgerPrice")
+            let burgerPriceFromLocalStore = localStorage.getItem("Price_burger")
             let burgerFinalRate = burgerPriceFromLocalStore - burgerPrice
             localStorage.setItem("Price_burger", burgerFinalRate)
             let Count = document.getElementById("burgerCount");
@@ -350,7 +352,7 @@ burger.addEventListener('click', () => {
         burgerLi.removeChild(newBtn)
         count.removeChild(divForCount)
         burgerLi.remove();
-        localStorage.removeItem("burgerPrice")
+        localStorage.removeItem("Price_burger")
         localStorage.removeItem("sales_burger")
         localStorage.removeItem('count_burger')
         burger.disabled = false;
@@ -410,7 +412,7 @@ pizza.addEventListener('click', () => {
     document.getElementById("pizzaMinusId").addEventListener("click", () => {
         if (p > 0 || p !== 0) {
             p--
-            let pizzaPriceFromLocalStore = localStorage.getItem("pizzaPrice")
+            let pizzaPriceFromLocalStore = localStorage.getItem("Price_pizza")
             let pizzaFinalRate = pizzaPriceFromLocalStore - pizzaPrice
             localStorage.setItem("Price_pizza", pizzaFinalRate)
             let Count = document.getElementById("pizzaCount");
@@ -426,7 +428,7 @@ pizza.addEventListener('click', () => {
         pizzaLi.removeChild(newBtn)
         count.removeChild(divForCount)
         pizzaLi.remove();
-        localStorage.removeItem("pizzaPrice")
+        localStorage.removeItem("Price_pizza")
         localStorage.removeItem("sales_pizza")
         localStorage.removeItem('count_pizza')
         pizza.disabled = false;
@@ -487,7 +489,7 @@ thanda.addEventListener('click', () => {
     document.getElementById("thandaMinusId").addEventListener("click", () => {
         if (t > 0 || t !== 0) {
             t--
-            let thandaPriceFromLocalStore = localStorage.getItem("thandaPrice")
+            let thandaPriceFromLocalStore = localStorage.getItem("Price_thanda")
             let thandaFinalRate = thandaPriceFromLocalStore - thandaPrice
             localStorage.setItem("Price_thanda", thandaFinalRate)
             let Count = document.getElementById("thandaCount");
@@ -505,7 +507,7 @@ thanda.addEventListener('click', () => {
         count.removeChild(divForCount)
         thandaLi.remove();
         thanda.disabled = false;
-        localStorage.removeItem("thandaPrice")
+        localStorage.removeItem("Price_thanda")
         localStorage.removeItem("sales_coldDrink")
         localStorage.removeItem('count_coldDrink')
     })
@@ -520,6 +522,8 @@ storageClrBtn.addEventListener("click", () => {
 })
 
 
+document.getElementById("doneBtn").addEventListener("click", () => {
+
 function countSpecialItems(prefix) {
     let count = 0;
     for (let i = 0; i < localStorage.length; i++) {
@@ -531,13 +535,18 @@ function countSpecialItems(prefix) {
     return count;
   }
 
-  const count1 =countSpecialItems('count_')
-document.getElementById("doneBtn").addEventListener("click", () => {
+  let count1 =countSpecialItems('count_')
+//   console.log('1', count1);
+  
+  
+  
+    // console.log('2', count1);
     if (count1) {
+        // console.log('3', count1);
 
         let final = document.createElement('p');
         final.id = 'finalBill';
-
+// // document.body.appendChild(final)
 
         let existingAlert = document.getElementById("alert");
         if (existingAlert) {
